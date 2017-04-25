@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全屏滑动</title>
+	<style  type="text/css">
+        *{padding: 0;margin: 0;}
+        html,body{
+			height: 100%;
+            overflow: hidden;
+        }
+        #container,.sections,.section{
+			height: 100%;
+			position: relative;
+		}
+        #section0,#section1,#section2,#section3{
+            background-color: #000;
+            background-size: cover;
+            background-position: 50% 50%;
+            text-align: center;
+            color: #fff;
+        }
+		#section0,#section1,#section2,#section3{
+			background-color: #000;
+			background-size: cover;
+			background-position: 50% 50%;
+			text-align: center;
+			color: white;
+		}
+        #section0{
+            background: url(../images/1.jpg) no-repeat;
+        }
+        #section1{
+            background: url(../images/2.jpg) no-repeat;
+        }
+        #section2{
+            background: url(../images/3.jpg) no-repeat;
+        }
+        #section3{
+            background: url(../images/4.jpg) no-repeat;
+        }
+		
+		.pages{
+			position:fixed;
+			list-style: none;
+		}
+		.vertical{
+			right: 10px;
+			top: 50%;
+		}
+		.horizontal{
+			left: 50%;
+			bottom: 10px;
+		}
+		.pages li{
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #fff;
+			margin: 10px 5px;
+			cursor: pointer;
+		}
+		.horizontal.pages li{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.pages li.active{
+			width: 14px;
+			height: 14px;
+			border: 2px solid #FFFE00;
+			background: none;
+			margin-left: 0;
+		}
+		.intro{
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+			
+		}
+		.title{
+			-webkit-animation: title 1s ease-in-out 100ms forwards;
+			animation: title 1s ease-in-out 100ms forwards;
+		}
+		.title_info{
+			-webkit-animation: title_info 1s ease-in-out 100ms forwards;
+			animation: title_info 1s ease-in-out 100ms forwards;
+		}
+		@keyframes title{
+			0%{
+				-webkit-transform: translateX(-100%);
+				transform: translateX(-100%);
+			},
+			100%{
+				-webkit-transform: translateX(0);
+				transform: translateX(0);
+			}
+		}
+		@keyframes title_info{
+			0%{
+				-webkit-transform: translateX(100%);
+				transform: translateX(100%);
+			},
+			100%{
+				-webkit-transform: translateX(0);
+				transform: translateX(0);
+			}
+		}
+    </style>
+</head>
+<body>
+    <div id="container"  data-PageSwitch>
+        <div class="sections">
+            <div class="section" id="section0">
+               	<div class="intro">
+               		<h3 class="title">this is the page1</h3>
+               		<p class="title_info">you can write more infomation.</p>
+               	</div>
+                
+            </div>
+            <div class="section" id="section1">
+                <h3>this is the page2</h3>
+            </div>
+            <div class="section" id="section2">
+                <h3>this is the page3</h3>
+            </div>
+            <div class="section" id="section3">
+                <h3>this is the page4</h3>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/jquery.js"></script>
+	<script src="../js/pageSwitch.js"></script>
+<!--
+	<script>
+        $("#container").PageSwitch({
+        });
+        调用插件的init方法
+        $("#container").PageSwitch("init");
+    </script>
+-->
+	<script>
+		$(function(){
+			$("[data-PageSwitch]").PageSwitch({
+				direction:'horizontal',
+				index:2,
+				loop: true
+			});
+    });
+	</script>
+</body>
+</html>
