@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>全屏滑动</title>
-	<style  type="text/css">
+	<style type="text/css">
         *{padding: 0;margin: 0;}
         html,body{
 			height: 100%;
@@ -13,6 +13,9 @@
 			height: 100%;
 			position: relative;
 		}
+		.sections{
+			transition: all 500ms ease;
+		}
         #section0,#section1,#section2,#section3{
             background-color: #000;
             background-size: cover;
@@ -20,24 +23,17 @@
             text-align: center;
             color: #fff;
         }
-		#section0,#section1,#section2,#section3{
-			background-color: #000;
-			background-size: cover;
-			background-position: 50% 50%;
-			text-align: center;
-			color: white;
-		}
         #section0{
-            background: url(../images/1.jpg) no-repeat;
+            background: url(./images/1.jpg) no-repeat;
         }
         #section1{
-            background: url(../images/2.jpg) no-repeat;
+            background: url(./images/2.jpg) no-repeat;
         }
         #section2{
-            background: url(../images/3.jpg) no-repeat;
+            background: url(./images/3.jpg) no-repeat;
         }
         #section3{
-            background: url(../images/4.jpg) no-repeat;
+            background: url(./images/4.jpg) no-repeat;
         }
 		
 		.pages{
@@ -60,11 +56,11 @@
 			margin: 10px 5px;
 			cursor: pointer;
 		}
-		.horizontal.pages li{
+		.horizontal li{
 			display: inline-block;
 			vertical-align: middle;
 		}
-		.pages li.active{
+		.pages .active{
 			width: 14px;
 			height: 14px;
 			border: 2px solid #FFFE00;
@@ -92,7 +88,7 @@
 			0%{
 				-webkit-transform: translateX(-100%);
 				transform: translateX(-100%);
-			},
+			}
 			100%{
 				-webkit-transform: translateX(0);
 				transform: translateX(0);
@@ -102,7 +98,7 @@
 			0%{
 				-webkit-transform: translateX(100%);
 				transform: translateX(100%);
-			},
+			}
 			100%{
 				-webkit-transform: translateX(0);
 				transform: translateX(0);
@@ -132,8 +128,8 @@
         </div>
     </div>
     
-    <script src="../js/jquery.js"></script>
-	<script src="../js/pageSwitch.js"></script>
+    <script src="./js/jquery.js"></script>
+	<script src="./js/fullpagejs.js"></script>
 <!--
 	<script>
         $("#container").PageSwitch({
@@ -145,8 +141,8 @@
 	<script>
 		$(function(){
 			$("[data-PageSwitch]").PageSwitch({
-				direction:'horizontal',
-				index:2,
+				direction:'vertical',
+				duration:1000,
 				loop: true
 			});
     });
